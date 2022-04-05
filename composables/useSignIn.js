@@ -37,5 +37,5 @@ const useSignIn = () => {
 export default useSignIn;
 
 // in component use:
-// import useSignIn from '../composables/useSignUp.js';
+// import useSignIn from '../composables/useSignIn.js';
 // const { login, errorMsg } = useSignIn();
