@@ -1,6 +1,6 @@
 # Javascript Composables for Firebase v9 & Vue 3
 
-The composables are made for different authentification approaches using the Firebase Web SDK in Vue 3
+The composables include authentification and firestore.
 
 ## Before you start
 
