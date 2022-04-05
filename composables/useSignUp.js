@@ -31,4 +31,4 @@ export default useSignUp;
 
 // in component use:
 // import useSignUp from '../composables/useSignUp.js';
-// const { signup, errorMsg } = useSignIn();
+// const { signup, errorMsg } = useSignUp();
