@@ -22,3 +22,6 @@ const app = initializeApp(firebaseConfig);
 
 // exports the auth module for further use
 export const auth = getAuth(app);
+
+// for further use call:
+// import { auth } from '../firebase/config.js'
