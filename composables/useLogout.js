@@ -1,5 +1,5 @@
-import { auth } from '../firebase/config.js';
 import { signOut } from 'firebase/auth';
+import { auth } from '../firebase/config.js';
 
 const useLogout = () => {
   const logout = async () => {
