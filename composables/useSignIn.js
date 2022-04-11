@@ -2,10 +2,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/config.js';
 import { ref } from 'vue';
 
-const errorMsg = ref();
-
 const useSignIn = () => {
-  errorMsg.value = ref();
+  const errorMsg = ref();
 
   //login
   const login = async (email, password) => {
@@ -13,21 +11,13 @@ const useSignIn = () => {
       await signInWithEmailAndPassword(auth, email, password);
       errorMsg.value = ref();
     } catch (error) {
-      // contains basic error messages. Change the errorMsg.value to your needs
-      switch (error.code) {
-        case 'auth/invalid-email':
-          errorMsg.value = 'Invalid email';
-          break;
-        case 'auth/wrong-password':
-          errorMsg.value = 'Incorrect password';
-          break;
-        case 'auth/user-not-found':
-          errorMsg.value = 'No account with the provided email found';
-          break;
-        default:
-          errorMsg.value = 'Incorrect credentials';
-          break;
-      }
+      const errorMessageMap = {
+        // contains basic error messages. Change the errorMsg.value to your needs
+        'auth/invalid-email': 'Invalid email',
+        'auth/wrong-password': 'Incorrect password',
+        'auth/user-not-found': 'No account with the provided email found',
+      };
+      errorMsg.value = errorMessageMap[error.code] ?? 'Incorrect credentials';
     }
   };
 

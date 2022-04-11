@@ -2,10 +2,8 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/config.js';
 import { ref } from 'vue';
 
-const errorMsg = ref();
-
 const useSignUp = () => {
-  errorMsg.value = ref();
+  const errorMsg = ref();
 
   //signup
   const signup = async (email, password) => {
@@ -14,13 +12,13 @@ const useSignUp = () => {
       errorMsg.value = ref();
     } catch (error) {
       // contains basic error messages. Change the errorMsg.value to your needs
-      switch (error.code) {
-        case 'auth/invalid-password':
-          errorMsg.value = 'password must contain at least 6 characters';
-          break;
-        case 'auth/email-already-exists':
-          errorMsg.value = 'email already taken';
-      }
+
+      const errorMessageMap = {
+        'auth/invalid-password': 'password must contain at least 6 characters',
+        'auth/email-already-exists': 'email already taken',
+      };
+      errorMsg.value =
+        errorMessageMap[error.code] ?? 'Something unexpected happened';
     }
   };
 
