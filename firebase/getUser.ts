@@ -1,7 +1,7 @@
 import { ref, type Ref } from 'vue';
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
 
-const auth = getAuth();
+const auth: Ref<object> = getAuth();
 
 const getUser = () => {
   const user: Ref<object> = ref(auth.currentUser);
