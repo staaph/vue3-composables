@@ -7,9 +7,8 @@ Use them in an existing project. Firebase needs to be installed
 ```js
 import { useAuth } from '@/composables/useAuth';
 
-const { login, errorMsg, user } = useAuth();
+const { login, errorMsg } = useAuth();
 
-// user acts like isAuthentiated => null if not authenticated, object if authenticated
 ```
 
 ### useFirestore
