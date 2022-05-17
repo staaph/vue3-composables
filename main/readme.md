@@ -10,8 +10,7 @@
 ```js
 import useDarkMode from '@/composables/darkMode.js';
 
-const { userTheme, getTheme, toggleTheme, setTheme, getMediaPreference } =
-  useDarkMode();
+const { userTheme, getTheme, toggleTheme, setTheme, getMediaPreference } = useDarkMode();
 
 onMounted(() => {
   const initUserTheme = getTheme() || getMediaPreference();
