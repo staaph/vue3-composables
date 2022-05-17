@@ -1,4 +1,4 @@
 # Vue 3 composables
 
-different composables
+Composables using the Vue 3 Composition API
 
