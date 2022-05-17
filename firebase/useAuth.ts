@@ -6,6 +6,7 @@ import {
   getAuth,
   signInWithPopup,
   GoogleAuthProvider,
+  onAuthStateChanged,
 } from 'firebase/auth';
 import { ref, type Ref } from 'vue';
 import { FirebaseError } from '@firebase/util';
@@ -81,5 +82,19 @@ export const useAuth = () => {
       }
     }
   };
-  return { login, signup, loginAnonymous, loginWithGoogle, logout, errorMsg };
+
+  const user: Ref = ref(getAuth().currentUser);
+  onAuthStateChanged(getAuth(), (_user) => {
+    user.value = _user;
+  });
+
+  return {
+    login,
+    signup,
+    loginAnonymous,
+    loginWithGoogle,
+    logout,
+    user,
+    errorMsg,
+  };
 };
