@@ -14,7 +14,7 @@ const { login, errorMsg } = useAuth();
 ### useFirestore
 
 ```js
-import { useFirestore } from '@/composables/useFirestore'
+import { useFirestore } from '@/composables/useFirestore';
 
-const { getDocument, addDocument } = useFirestore()
+const { getDocument, addDocument } = useFirestore();
 ```
