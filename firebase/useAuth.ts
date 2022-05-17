@@ -14,6 +14,7 @@ export const useAuth = () => {
 
   const login = async (email: string, password: string) => {
     try {
+      errorMsg.value = ref();
       await signInWithEmailAndPassword(getAuth(), email, password);
       errorMsg.value = ref();
     } catch (error: any) {
@@ -28,8 +29,8 @@ export const useAuth = () => {
 
   const signup = async (email: string, password: string) => {
     try {
-      await createUserWithEmailAndPassword(getAuth(), email, password);
       errorMsg.value = ref();
+      await createUserWithEmailAndPassword(getAuth(), email, password);
     } catch (error: any) {
       const errorMessageMap: { [key: string]: string } = {
         'auth/weak-password': 'password must contain at least 6 characters',
@@ -42,8 +43,8 @@ export const useAuth = () => {
 
   const loginAnonymous = () => {
     try {
-      signInAnonymously(getAuth());
       errorMsg.value = ref();
+      signInAnonymously(getAuth());
     } catch (error: any) {
       errorMsg.value = 'Something unexpected happened';
     }
@@ -51,8 +52,8 @@ export const useAuth = () => {
 
   const loginWithGoogle = async () => {
     try {
-      await signInWithPopup(getAuth(), new GoogleAuthProvider());
       errorMsg.value = ref();
+      await signInWithPopup(getAuth(), new GoogleAuthProvider());
     } catch (error) {
       errorMsg.value = 'Something unexpected happened';
     }
@@ -60,8 +61,8 @@ export const useAuth = () => {
 
   const logout = async () => {
     try {
-      await signOut(getAuth());
       errorMsg.value = ref();
+      await signOut(getAuth());
     } catch (error: any) {
       errorMsg.value = 'Something unexpected happened.';
     }
