@@ -1,9 +1,8 @@
-import { ref, type Ref } from 'vue';
+import { ref, type Ref, onMounted } from 'vue';
 
-const userTheme:Ref<string> = ref('dark');
-
-const useDarkMode = () => {
-  const setTheme = (theme:string) => {
+export const useDarkMode = () => {
+  const userTheme: Ref<string> = ref('dark');
+  const setTheme = (theme: string) => {
     localStorage.setItem('theme', theme);
     userTheme.value = theme;
     document.documentElement.className = theme;
@@ -32,7 +31,11 @@ const useDarkMode = () => {
       setTheme('light');
     }
   };
-  return { getTheme, setTheme, getMediaPreference, toggleTheme, userTheme };
-};
 
-export default useDarkMode;
+  onMounted(() => {
+    const initUserTheme = getTheme() || getMediaPreference();
+    setTheme(initUserTheme);
+  });
+
+  return { toggleTheme, userTheme };
+};

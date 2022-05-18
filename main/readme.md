@@ -8,14 +8,10 @@
 ```
 
 ```js
-import useDarkMode from '@/composables/darkMode';
+import { useDarkMode } from '@/composables/darkMode';
 
-const { userTheme, getTheme, toggleTheme, setTheme, getMediaPreference } = useDarkMode();
+const { userTheme, toggleTheme} = useDarkMode();
 
-onMounted(() => {
-  const initUserTheme = getTheme() || getMediaPreference();
-  setTheme(initUserTheme);
-});
 ```
 
 ## useHotKey
