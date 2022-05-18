@@ -18,18 +18,18 @@ import { useFirestore } from '@/composables/useFirestore';
 
 const { getDocument, addDocument, setDocument } = useFirestore();
 
-getDocument: (reference: string) => Promise<object[]>
+// const getDocument: (reference: string) => Promise<object[]>
 const click = async () => {
   const document = await getDocument('cities');
   return document;
 };
 
-addDocument: (reference: string, data: object) => Promise<void>
+// const addDocument: (reference: string, data: object) => Promise<void>
 const click = () => {
   addDocument('test', { data: 'testdata' });
 };
 
-setDocument: (reference: string, docname: string, data: object, mergeDoc?: object) => Promise<void>
+// const setDocument: (reference: string, docname: string, data: object, mergeDoc?: object) => Promise<void>
 const click = () => {
   setDocument(
     'cities',
