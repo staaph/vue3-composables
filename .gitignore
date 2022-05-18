@@ -1,1 +1,8 @@
+#general
 .DS_STORE
+.vscode/*
+
+# node
+package.json
+package-lock.json
+node_modules
