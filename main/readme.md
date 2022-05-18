@@ -8,7 +8,7 @@
 ```
 
 ```js
-import useDarkMode from '@/composables/darkMode.js';
+import useDarkMode from '@/composables/darkMode';
 
 const { userTheme, getTheme, toggleTheme, setTheme, getMediaPreference } = useDarkMode();
 
