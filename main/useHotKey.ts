@@ -13,6 +13,9 @@ export const useHotKey = () => {
         searchbar.value.focus();
       }
     }
+    if(e.key === 'Escape'){
+      (document.activeElement as HTMLElement).blur();
+    }
   };
 
   onMounted(() => {
