@@ -1,6 +1,6 @@
 import { ref, type Ref, onMounted } from 'vue';
 
-export const useDarkMode = () => {
+export const useDark = () => {
   const userTheme: Ref<string> = ref('dark');
   const setTheme = (theme: string) => {
     localStorage.setItem('theme', theme);

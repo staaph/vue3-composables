@@ -4,7 +4,7 @@ export const useHotKey = () => {
   const metaKey: Ref = ref();
   const searchbar: Ref = ref();
 
-  const handleSearchHotKey = (e: KeyboardEvent) => {
+  const useSearchFocus = (e: KeyboardEvent) => {
     if (e.key === 'k' && (e.ctrlKey || e.metaKey)) {
       e.preventDefault();
       if (document.activeElement != document.body) {
@@ -21,10 +21,10 @@ export const useHotKey = () => {
   onMounted(() => {
     metaKey.value.textContent =
       window.navigator.userAgent.indexOf('Mac') != -1 ? '⌘' : 'Ctrl';
-    window.addEventListener('keydown', handleSearchHotKey);
+    window.addEventListener('keydown', useSearchFocus);
   });
   onUnmounted(() => {
-    window.removeEventListener('keydown', handleSearchHotKey);
+    window.removeEventListener('keydown', useSearchFocus);
   });
 
   return { metaKey, searchbar };

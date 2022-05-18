@@ -1,4 +1,4 @@
-# useDarkMode
+# useDark
 
 ```html
 <button>
@@ -8,13 +8,13 @@
 ```
 
 ```js
-import { useDarkMode } from '@/composables/darkMode';
+import { useDark } from '@/composables/useDark';
 
-const { userTheme, toggleTheme} = useDarkMode();
+const { userTheme, toggleTheme} = useDark();
 
 ```
 
-## useHotKey
+## useSearchFocus
 
 ```html
 <input ref="searchbar" type="text" />
@@ -26,6 +26,6 @@ const { userTheme, toggleTheme} = useDarkMode();
 ```
 
 ```js
-import { useHotKey } from '@/composables/useHotKey';
-const { metaKey, searchbar } = useHotKey();
+import { useSearchFocus } from '@/composables/useSearchFocus';
+const { metaKey, searchbar } = useSearchFocus();
 ```
