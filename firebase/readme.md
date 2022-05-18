@@ -16,7 +16,7 @@ const { login, errorMsg, user } = useAuth();
 ```js
 import { useFirestore } from '@/composables/useFirestore';
 
-const { getDocument, addDocument, setDocument } = useFirestore();
+const { addDocument, getDocument, setDocument, deleteDocument, updateDocument } = useFirestore();
 
 // const getDocument: (reference: string) => Promise<object[]>
 const click = async () => {
@@ -41,5 +41,15 @@ const click = () => {
     },
     { merge: true }
   );
+};
+
+// const deleteDocument: (reference: string, document: string) => Promise<void>
+const click = () => {
+  deleteDocument('collection', 'document');
+};
+
+// const updateDocument: (reference: string, document: string, data: object) => Promise<void>
+const click = () => {
+  updateDocument('collection', 'document', { data: 'test' });
 };
 ```

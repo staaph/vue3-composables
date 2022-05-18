@@ -5,6 +5,8 @@ import {
   doc,
   getFirestore,
   collection,
+  deleteDoc,
+  updateDoc,
 } from 'firebase/firestore';
 
 export const useFirestore = () => {
@@ -28,5 +30,23 @@ export const useFirestore = () => {
     await setDoc(doc(getFirestore(), reference, docname), data, mergeDoc);
   };
 
-  return { addDocument, getDocument, setDocument };
+  const deleteDocument = async (reference: string, document: string) => {
+    await deleteDoc(doc(getFirestore(), reference, document));
+  };
+
+  const updateDocument = async (
+    reference: string,
+    document: string,
+    data: object
+  ) => {
+    await updateDoc(doc(getFirestore(), reference, document), data);
+  };
+
+  return {
+    addDocument,
+    getDocument,
+    setDocument,
+    deleteDocument,
+    updateDocument,
+  };
 };
