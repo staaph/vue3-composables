@@ -7,9 +7,8 @@ Use them in an existing project. Firebase needs to be installed
 ```js
 import { useAuth } from '@/composables/useAuth';
 
-const { login, errorMsg, user } = useAuth();
-
 // user acts like isAuthenticated => user.value will return null or object
+const { login, errorMsg, user } = useAuth();
 ```
 
 ### useFirestore
@@ -17,5 +16,30 @@ const { login, errorMsg, user } = useAuth();
 ```js
 import { useFirestore } from '@/composables/useFirestore';
 
-const { getDocument, addDocument } = useFirestore();
+const { getDocument, addDocument, setDocument } = useFirestore();
+
+getDocument: (reference: string) => Promise<object[]>
+const click = async () => {
+  const document = await getDocument('cities');
+  return document;
+};
+
+addDocument: (reference: string, data: object) => Promise<void>
+const click = () => {
+  addDocument('test', { data: 'testdata' });
+};
+
+setDocument: (reference: string, docname: string, data: object, mergeDoc?: object) => Promise<void>
+const click = () => {
+  setDocument(
+    'cities',
+    'LA',
+    {
+      name: 'Los Angeles',
+      state: 'CA',
+      country: 'USA',
+    },
+    { merge: true }
+  );
+};
 ```

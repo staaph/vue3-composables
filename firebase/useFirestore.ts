@@ -1,4 +1,11 @@
-import { addDoc, getDocs, getFirestore, collection } from 'firebase/firestore';
+import {
+  addDoc,
+  getDocs,
+  setDoc,
+  doc,
+  getFirestore,
+  collection,
+} from 'firebase/firestore';
 
 export const useFirestore = () => {
   const addDocument = async (reference: string, data: object) => {
@@ -11,5 +18,15 @@ export const useFirestore = () => {
     snapshot.forEach((doc) => documents.push({ ...doc.data() }));
     return documents;
   };
-  return { addDocument, getDocument };
+
+  const setDocument = async (
+    reference: string,
+    docname: string,
+    data: object,
+    mergeDoc: object = { merge: false }
+  ) => {
+    await setDoc(doc(getFirestore(), reference, docname), data, mergeDoc);
+  };
+
+  return { addDocument, getDocument, setDocument };
 };
