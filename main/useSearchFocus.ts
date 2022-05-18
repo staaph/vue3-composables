@@ -1,10 +1,10 @@
 import { ref, type Ref, onMounted, onUnmounted } from 'vue';
 
-export const useHotKey = () => {
+export const useSearchFocus = () => {
   const metaKey: Ref = ref();
   const searchbar: Ref = ref();
 
-  const useSearchFocus = (e: KeyboardEvent) => {
+  const handleSearchHotKey = (e: KeyboardEvent) => {
     if (e.key === 'k' && (e.ctrlKey || e.metaKey)) {
       e.preventDefault();
       if (document.activeElement != document.body) {
@@ -21,10 +21,10 @@ export const useHotKey = () => {
   onMounted(() => {
     metaKey.value.textContent =
       window.navigator.userAgent.indexOf('Mac') != -1 ? '⌘' : 'Ctrl';
-    window.addEventListener('keydown', useSearchFocus);
+    window.addEventListener('keydown', handleSearchHotKey);
   });
   onUnmounted(() => {
-    window.removeEventListener('keydown', useSearchFocus);
+    window.removeEventListener('keydown', handleSearchHotKey);
   });
 
   return { metaKey, searchbar };
