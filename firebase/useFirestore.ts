@@ -25,7 +25,7 @@ export const useFirestore = () => {
     reference: string,
     docname: string,
     data: object,
-    options: object = { merge: false }
+    options: { merge?: boolean } = { merge: false }
   ) => {
     await setDoc(doc(getFirestore(), reference, docname), data, options);
   };

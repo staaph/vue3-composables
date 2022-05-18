@@ -80,7 +80,8 @@ const click = () => {
   addDocument('test', { data: 'testdata' });
 };
 
-// const setDocument: (reference: string, docname: string, data: object, options?: object) => Promise<void>
+// const setDocument: (reference: string, docname: string, data: object, options?: { merge?: boolean | undefined }) 
+// => Promise<void>
 const click = () => {
   setDocument(
     'cities',
