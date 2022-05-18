@@ -25,9 +25,9 @@ export const useFirestore = () => {
     reference: string,
     docname: string,
     data: object,
-    mergeDoc: object = { merge: false }
+    options: object = { merge: false }
   ) => {
-    await setDoc(doc(getFirestore(), reference, docname), data, mergeDoc);
+    await setDoc(doc(getFirestore(), reference, docname), data, options);
   };
 
   const deleteDocument = async (reference: string, document: string) => {
