@@ -43,6 +43,17 @@ const click = () => {
 const click = () => {
   logout();
 };
+
+// const errorMsg: Ref<string | unknown>
+// can be used directly in the template
+<p>{{errorMsg}}</p>
+
+// const user: Ref<object | null>
+if (user) {
+  // do something
+} else {
+  // refuse entry
+}
 ```
 
 ### useFirestore

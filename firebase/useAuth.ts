@@ -12,7 +12,7 @@ import { ref, type Ref } from 'vue';
 import { FirebaseError } from '@firebase/util';
 
 export const useAuth = () => {
-  const errorMsg: Ref = ref();
+  const errorMsg: Ref<string | unknown> = ref();
 
   const login = async (email: string, password: string) => {
     try {
@@ -83,9 +83,10 @@ export const useAuth = () => {
     }
   };
 
-  const user: Ref = ref(getAuth().currentUser);
+  const user: Ref<object | null> = ref(getAuth().currentUser);
   onAuthStateChanged(getAuth(), (_user) => {
     user.value = _user;
+    return user;
   });
 
   return {
