@@ -8,7 +8,41 @@ Use them in an existing project. Firebase needs to be installed
 import { useAuth } from '@/composables/useAuth';
 
 // user acts like isAuthenticated => user.value will return null or object
-const { login, errorMsg, user } = useAuth();
+// these functions can be called directly in the template
+const {
+  login,
+  signup,
+  loginAnonymous,
+  loginWithGoogle,
+  logout,
+  user,
+  errorMsg,
+} = useAuth();
+
+// const login: (email: string, password: string) => Promise<void>
+const click = () => {
+  login(email.value, password.value);
+};
+
+// const signup: (email: string, password: string) => Promise<void>
+const click = () => {
+  signup(email.value, password.value);
+};
+
+// const loginAnonymous: () => void
+const click = () => {
+  loginAnonymous();
+};
+
+// const loginWithGoogle: () => Promise<void>
+const click = () => {
+  loginWithGoogle();
+};
+
+// const logout: () => Promise<void>
+const click = () => {
+  logout();
+};
 ```
 
 ### useFirestore
@@ -16,7 +50,13 @@ const { login, errorMsg, user } = useAuth();
 ```js
 import { useFirestore } from '@/composables/useFirestore';
 
-const { addDocument, getDocument, setDocument, deleteDocument, updateDocument } = useFirestore();
+const {
+  addDocument,
+  getDocument,
+  setDocument,
+  deleteDocument,
+  updateDocument,
+} = useFirestore();
 
 // const getDocument: (reference: string) => Promise<object[]>
 const click = async () => {
