@@ -17,3 +17,19 @@ onMounted(() => {
   setTheme(initUserTheme);
 });
 ```
+
+## useHotKey
+
+```html
+<input ref="searchbar" type="text" />
+<!-- metaKey changes its Symbol based on os -->
+<div>
+  <span ref="metaKey">Meta</span>
+  <span>&nbsp;+&nbsp;K</span>
+</div>
+```
+
+```js
+import { useHotKey } from '@/composables/useHotKey';
+const { metaKey, searchbar } = useHotKey();
+```
