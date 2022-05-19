@@ -15,8 +15,8 @@ export const useAuth = () => {
   const errorMsg: Ref<string | unknown> = ref();
 
   const login = async (email: string, password: string) => {
+    errorMsg.value = '';
     try {
-      errorMsg.value = ref();
       await signInWithEmailAndPassword(getAuth(), email, password);
     } catch (error: unknown) {
       if (error instanceof FirebaseError) {
@@ -33,8 +33,8 @@ export const useAuth = () => {
   };
 
   const signup = async (email: string, password: string) => {
+    errorMsg.value = '';
     try {
-      errorMsg.value = ref();
       await createUserWithEmailAndPassword(getAuth(), email, password);
     } catch (error: unknown) {
       if (error instanceof FirebaseError) {
@@ -49,8 +49,8 @@ export const useAuth = () => {
   };
 
   const loginAnonymous = () => {
+    errorMsg.value = '';
     try {
-      errorMsg.value = ref();
       signInAnonymously(getAuth());
     } catch (error: unknown) {
       if (error instanceof FirebaseError) {
@@ -62,8 +62,8 @@ export const useAuth = () => {
   };
 
   const loginWithGoogle = async () => {
+    errorMsg.value = '';
     try {
-      errorMsg.value = ref();
       await signInWithPopup(getAuth(), new GoogleAuthProvider());
     } catch (error) {
       errorMsg.value = 'Something unexpected happened';
@@ -71,8 +71,8 @@ export const useAuth = () => {
   };
 
   const logout = async () => {
+    errorMsg.value = '';
     try {
-      errorMsg.value = ref();
       await signOut(getAuth());
     } catch (error: unknown) {
       if (error instanceof FirebaseError) {
