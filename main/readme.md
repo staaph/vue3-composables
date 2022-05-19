@@ -17,9 +17,9 @@ const { userTheme, toggleTheme} = useDark();
 ## useSearchFocus
 
 ```html
-<input ref="searchbar" type="text" />
-<!-- metaKey changes its Symbol based on os -->
 <div>
+  <input ref="searchbar" type="text" />
+  <!-- metaKey changes its Symbol based on os -->
   <span ref="metaKey">Meta</span>
   <span>&nbsp;+&nbsp;K</span>
 </div>
