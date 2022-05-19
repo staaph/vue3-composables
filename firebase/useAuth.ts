@@ -83,19 +83,12 @@ export const useAuth = () => {
     }
   };
 
-  const user: Ref<object | null> = ref(getAuth().currentUser);
-  onAuthStateChanged(getAuth(), (_user) => {
-    user.value = _user;
-    return user;
-  });
-
   return {
     login,
     signup,
     loginAnonymous,
     loginWithGoogle,
     logout,
-    user,
     errorMsg,
   };
 };

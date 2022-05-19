@@ -7,7 +7,6 @@ Use them in an existing project. Firebase needs to be installed
 ```js
 import { useAuth } from '@/composables/useAuth';
 
-// user acts like isAuthenticated => user.value will return null or object
 // these functions can be called directly in the template
 const {
   login,
@@ -15,7 +14,6 @@ const {
   loginAnonymous,
   loginWithGoogle,
   logout,
-  user,
   errorMsg,
 } = useAuth();
 
@@ -47,13 +45,6 @@ const click = () => {
 // const errorMsg: Ref<string | unknown>
 // can be used directly in the template
 <p>{{errorMsg}}</p>
-
-// const user: Ref<object | null>
-if (user) {
-  // do something
-} else {
-  // refuse entry
-}
 ```
 
 ### useFirestore
