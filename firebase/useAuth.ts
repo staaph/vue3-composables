@@ -14,6 +14,11 @@ import { FirebaseError } from '@firebase/util';
 export const useAuth = () => {
   const errorMsg: Ref<string | unknown> = ref();
 
+  /**
+   * login with email & password
+   * @param email pass email from input
+   * @param password pass password from input
+   */
   const login = async (email: string, password: string) => {
     errorMsg.value = '';
     try {
@@ -32,6 +37,11 @@ export const useAuth = () => {
     }
   };
 
+  /**
+   * sign user in using email and password
+   * @param email pass email from input
+   * @param password pass password from input
+   */
   const signup = async (email: string, password: string) => {
     errorMsg.value = '';
     try {
@@ -48,6 +58,9 @@ export const useAuth = () => {
     }
   };
 
+  /**
+   * log user in anonymously
+   */
   const loginAnonymous = () => {
     errorMsg.value = '';
     try {
@@ -61,6 +74,9 @@ export const useAuth = () => {
     }
   };
 
+  /**
+   * login with Google, opens popup
+   */
   const loginWithGoogle = async () => {
     errorMsg.value = '';
     try {
@@ -70,6 +86,9 @@ export const useAuth = () => {
     }
   };
 
+  /**
+   * log user out
+   */
   const logout = async () => {
     errorMsg.value = '';
     try {
