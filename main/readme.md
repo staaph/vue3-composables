@@ -33,3 +33,18 @@ const { userTheme, toggleTheme} = useDark();
 import { useSearchFocus } from '@/composables/useSearchFocus';
 const { metaKey, searchbar } = useSearchFocus();
 ```
+
+## stopPageLeave
+
+```js
+<script setup>
+import { stopPageLeave } from '@/composables/stopPageLeave';
+import { onMounted, ref } from 'vue';
+
+const isEditing = ref(true);
+
+onMounted(() => {
+  stopPageLeave(isEditing.value);
+});
+</script>
+```
