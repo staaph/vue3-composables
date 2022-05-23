@@ -11,5 +11,6 @@ as of now they include:
 
 / main
 
-- useDarkMode
+- useDark
 - useHotKey (toggle searchbar focus)
+- stopPageLeave

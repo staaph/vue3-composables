@@ -1,5 +1,9 @@
 import { onBeforeRouteLeave } from 'vue-router';
 
+/**
+ * prevents user from leaving the page
+ * @param flag activate on unsaved changes
+ */
 export const stopPageLeave = (flag: boolean) => {
   if (flag) {
     onBeforeRouteLeave((to, from, next) => {
