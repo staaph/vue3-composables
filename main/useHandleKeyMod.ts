@@ -8,11 +8,7 @@ export const handleKeyMod = (key = 'CapsLock') => {
   const active: Ref<boolean> = ref(false);
 
   const handleKey = (e: KeyboardEvent) => {
-    if (e.getModifierState(key)) {
-      active.value = true;
-    } else {
-      active.value = false;
-    }
+    active.value = e.getModifierState(key);
   };
   return { active, handleKey };
 };
