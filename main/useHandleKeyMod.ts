@@ -7,14 +7,12 @@ import { ref, type Ref } from 'vue';
 export const handleKeyMod = (key = 'CapsLock') => {
   const active: Ref<boolean> = ref(false);
 
-  const handleClick = (e: KeyboardEvent) => {
-    active.value = e.getModifierState(key);
+  const handleKey = (e: KeyboardEvent) => {
+    if (e.getModifierState(key)) {
+      active.value = true;
+    } else {
+      active.value = false;
+    }
   };
-  window.addEventListener('keydown', handleClick);
-  window.onunload = function () {
-    window.removeEventListener('keydown', handleClick);
-    return;
-  };
-
-  return { active };
+  return { active, handleKey };
 };

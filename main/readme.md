@@ -50,14 +50,15 @@ onMounted(() => {
 ## useHandleKeyMod
 
 ```html
-<input type="password" @keypress="handleKeyMod('CapsLock')" />
-<div v-if="active">Caps active</div>
+<input id="myInput" value="Some text.." @keypress="handleKey" />
+<p v-if="active">WARNING! Caps lock is ON.</p>
 ```
 
 ```js
 import { handleKeyMod } from '@/composables/useHandleKey';
 
+
 // accepts String:
 // 'Alt', 'AltGraph', 'Control', 'Meta', 'Shift', 'CapsLock', 'NumLock', 'ScrollLock'
-const { active } = handleKeyMod('CapsLock');
+const { active, handleKey } = handleKeyMod();
 ```
