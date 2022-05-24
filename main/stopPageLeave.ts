@@ -1,9 +1,6 @@
 import { onBeforeRouteLeave } from 'vue-router';
+import { onUnmounted } from 'vue';
 
-/**
- * prevents user from leaving the page
- * @param flag activate on unsaved changes
- */
 export const stopPageLeave = (flag: boolean) => {
   if (flag) {
     onBeforeRouteLeave((to, from, next) => {
@@ -16,12 +13,16 @@ export const stopPageLeave = (flag: boolean) => {
         next();
       }
     });
-
-    window.addEventListener('beforeunload', function (e) {
+    const handleClick = (e: Event) => {
       if (window.navigator.userAgent.indexOf('Chrome')) {
-        e.returnValue = '';
+        e.returnValue = true;
       }
       e.preventDefault();
+    };
+
+    window.addEventListener('beforeunload', handleClick);
+    onUnmounted(() => {
+      window.removeEventListener('beforeunload', handleClick);
     });
   }
 };
