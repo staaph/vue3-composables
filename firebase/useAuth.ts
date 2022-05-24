@@ -16,8 +16,8 @@ export const useAuth = () => {
 
   /**
    * login with email & password
-   * @param email pass email from input
-   * @param password pass password from input
+   * @param email - pass email from input
+   * @param password - pass password from input
    */
   const login = async (email: string, password: string) => {
     errorMsg.value = '';
@@ -39,8 +39,8 @@ export const useAuth = () => {
 
   /**
    * sign user in using email and password
-   * @param email pass email from input
-   * @param password pass password from input
+   * @param email - pass email from input
+   * @param password - pass password from input
    */
   const signup = async (email: string, password: string) => {
     errorMsg.value = '';
