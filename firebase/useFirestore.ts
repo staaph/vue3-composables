@@ -13,8 +13,8 @@ export const useFirestore = () => {
 
   /**
    * add document to firestore
-   * @param reference database reference
-   * @param data add data as Object
+   * @param reference - database reference
+   * @param data add - data as Object
    */
   const addDocument = async (reference: string, data: object) => {
     await addDoc(collection(getFirestore(), reference), data);
@@ -23,7 +23,7 @@ export const useFirestore = () => {
 
   /**
    * get documents by collection
-   * @param reference database reference
+   * @param reference - database reference
    */
   const getDocument = async (reference: string) => {
     const documents: Array<object> = [];
@@ -34,10 +34,10 @@ export const useFirestore = () => {
 
   /**
    * set documents with naming and merging option
-   * @param reference database reference
-   * @param docname name of the document
-   * @param data pass data as Object
-   * @param options merge with existing data or enable overwriting ?
+   * @param reference - database reference
+   * @param docname - name of the document
+   * @param data - pass data as Object
+   * @param options - merge with existing data or enable overwriting ?
    */
   const setDocument = async (
     reference: string,
@@ -50,8 +50,8 @@ export const useFirestore = () => {
 
   /**
    * delete single document in collection
-   * @param reference database reference
-   * @param document pass document name or ID
+   * @param reference - database reference
+   * @param document - pass document name or ID
    */
   const deleteDocument = async (reference: string, document: string) => {
     await deleteDoc(doc(getFirestore(), reference, document));
@@ -59,9 +59,9 @@ export const useFirestore = () => {
 
   /**
    * update a document by name or id
-   * @param reference database reference
-   * @param document pass Document Name or ID
-   * @param data add data in Object format
+   * @param reference - database reference
+   * @param document - pass Document Name or ID
+   * @param data - add data in Object format
    * 
    */
   const updateDocument = async (
