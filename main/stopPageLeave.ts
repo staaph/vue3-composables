@@ -13,16 +13,16 @@ export const stopPageLeave = (flag: boolean) => {
         next();
       }
     });
-    const handleClick = (e: Event) => {
+    const handleLeave = (e: Event) => {
       if (window.navigator.userAgent.indexOf('Chrome')) {
         e.returnValue = true;
       }
       e.preventDefault();
     };
 
-    window.addEventListener('beforeunload', handleClick);
+    window.addEventListener('beforeunload', handleLeave);
     onUnmounted(() => {
-      window.removeEventListener('beforeunload', handleClick);
+      window.removeEventListener('beforeunload', handleLeave);
     });
   }
 };
