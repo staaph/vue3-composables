@@ -8,8 +8,7 @@ export const handleKeyMod = (key = 'CapsLock') => {
   const active: Ref<boolean> = ref(false);
 
   const handleClick = (e: KeyboardEvent) => {
-    const x = e.getModifierState(key);
-    active.value = x;
+    active.value = e.getModifierState(key);
   };
   window.addEventListener('keydown', handleClick);
   window.onunload = function () {
