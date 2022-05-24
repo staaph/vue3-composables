@@ -14,3 +14,4 @@ as of now they include:
 - useDark
 - useHotKey (toggle searchbar focus)
 - stopPageLeave
+- useHanldeKeyMod (check for capslock on input for example)

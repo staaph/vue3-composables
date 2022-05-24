@@ -46,3 +46,18 @@ onMounted(() => {
   stopPageLeave(isEditing.value);
 });
 ```
+
+## useHandleKeyMod
+
+```html
+<input type="password" @keypress="handleKeyMod('CapsLock')" />
+<div v-if="active">Caps active</div>
+```
+
+```js
+import { handleKeyMod } from '@/composables/useHandleKey';
+
+// accepts String:
+// 'Alt', 'AltGraph', 'Control', 'Meta', 'Shift', 'CapsLock', 'NumLock', 'ScrollLock'
+const { active } = handleKeyMod('CapsLock');
+```
