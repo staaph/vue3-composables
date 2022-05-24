@@ -38,9 +38,9 @@ const { metaKey, searchbar } = useSearchFocus();
 
 ```js
 import { stopPageLeave } from '@/composables/stopPageLeave';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, type Ref } from 'vue';
 
-const isEditing = ref(true);
+const isEditing: Ref<boolean> = ref(true);
 
 onMounted(() => {
   stopPageLeave(isEditing.value);
