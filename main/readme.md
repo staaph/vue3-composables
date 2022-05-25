@@ -50,7 +50,7 @@ onMounted(() => {
 ## useHandleKeyMod
 
 ```html
-<input id="myInput" value="Some text.." @keypress="handleKey" />
+<input type="password" @keypress="handleKey" />
 <p v-if="active">WARNING! Caps lock is ON.</p>
 ```
 
