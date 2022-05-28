@@ -15,3 +15,4 @@ as of now they include:
 - useHotKey (toggle searchbar focus)
 - stopPageLeave
 - useHandleKeyMod (check for capslock on input for example)
+- useClipboard

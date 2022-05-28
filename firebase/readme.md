@@ -5,18 +5,16 @@ Use them in an existing project. Firebase needs to be installed
 ## useAuth
 
 ```js
-import { useAuth } from '@/composables/useAuth';
-
-// these functions can be called directly in the template
-const {
+import {
   login,
   signup,
   loginAnonymous,
   loginWithGoogle,
   logout,
   errorMsg,
-} = useAuth();
+} from '@/composables/useAuth';
 
+// these functions can be called directly in the template
 // const login: (email: string, password: string) => Promise<void>
 const click = () => {
   login(email.value, password.value);
@@ -44,21 +42,19 @@ const click = () => {
 
 // const errorMsg: Ref<string | unknown>
 // can be used directly in the template
-<p>{{errorMsg}}</p>
+<p>{{ errorMsg }}</p>;
 ```
 
 ### useFirestore
 
 ```js
-import { useFirestore } from '@/composables/useFirestore';
-
-const {
+import {
   addDocument,
   getDocument,
   setDocument,
   deleteDocument,
   updateDocument,
-} = useFirestore();
+} from '@/composables/useFirestore';
 
 // const getDocument: (reference: string) => Promise<object[]>
 const click = async () => {
@@ -71,7 +67,7 @@ const click = () => {
   addDocument('test', { data: 'testdata' });
 };
 
-// const setDocument: (reference: string, docname: string, data: object, options?: { merge?: boolean | undefined }) 
+// const setDocument: (reference: string, docname: string, data: object, options?: { merge?: boolean | undefined })
 // => Promise<void>
 const click = () => {
   setDocument(
