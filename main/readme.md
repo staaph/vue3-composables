@@ -37,13 +37,11 @@ const { metaKey, searchbar } = useSearchFocus();
 
 ```ts
 import { stopPageLeave } from '@/composables/stopPageLeave';
-import { onMounted, ref, type Ref } from 'vue';
+import { ref, type Ref } from 'vue';
 
 const isEditing: Ref<boolean> = ref(true);
 
-onMounted(() => {
-  stopPageLeave(isEditing.value);
-});
+stopPageLeave(isEditing.value);
 ```
 
 ## useHandleKeyMod
