@@ -64,7 +64,7 @@ const { active, handleKey } = handleKeyMod();
 ```html
 <div>
   <input type="text" v-model="input" />
-  <button @click="copy(input, { msg: 'test', timer: 1000 })">copy</button>
+  <button @click="click">copy</button>
   <p v-if="message">{{ message }}</p>
 </div>
 ```
@@ -75,4 +75,9 @@ import { useClipboard } from '@/composables/useClipboard';
 
 const input: Ref<string> = ref('');
 const { copy, message } = useClipboard();
+
+//const copy: (data: string, options: { msg: string; timer?: number | undefined }) => Promise<void>
+const click = () => {
+  copy(input.value, { msg: 'Copied!', timer: 1000 });
+};
 ```
