@@ -35,7 +35,7 @@ const { metaKey, searchbar } = useSearchFocus();
 
 ## stopPageLeave
 
-```js
+```ts
 import { stopPageLeave } from '@/composables/stopPageLeave';
 import { onMounted, ref, type Ref } from 'vue';
 
@@ -71,7 +71,7 @@ const { active, handleKey } = handleKeyMod();
 </div>
 ```
 
-```js
+```ts
 import { ref, type Ref } from 'vue';
 import { useClipboard } from '@/composables/useClipboard';
 
