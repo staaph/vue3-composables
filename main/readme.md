@@ -14,8 +14,7 @@ General composables
 ```js
 import { useDark } from '@/composables/useDark';
 
-const { userTheme, toggleTheme} = useDark();
-
+const { userTheme, toggleTheme } = useDark();
 ```
 
 ## useSearchFocus
@@ -57,7 +56,6 @@ onMounted(() => {
 ```js
 import { handleKeyMod } from '@/composables/useHandleKey';
 
-
 // accepts String:
 // 'Alt', 'AltGraph', 'Control', 'Meta', 'Shift', 'CapsLock', 'NumLock', 'ScrollLock'
 const { active, handleKey } = handleKeyMod();
@@ -66,11 +64,11 @@ const { active, handleKey } = handleKeyMod();
 ## useClipboard
 
 ```html
-  <div>
-    <input type="text" v-model="input"/>
-    <button @click="copy(input, 1000)">copy</button>
-    <p v-if="message">{{ message }}</p>
-  </div>
+<div>
+  <input type="text" v-model="input" />
+  <button @click="copy(input, { msg: 'test', timer: 1000 })">copy</button>
+  <p v-if="message">{{ message }}</p>
+</div>
 ```
 
 ```js

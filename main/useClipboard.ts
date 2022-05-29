@@ -4,19 +4,20 @@ export const useClipboard = () => {
   const message: Ref<string> = ref('');
 
   /**
-   * copy text to clipboard
-   * @param data - String to be copied to clipboard
-   * @param timeoutMsg - specify milliseconds to remove the message
+   *
+   * @param data String to be copied to clipboard
+   * @param options msg define message 
+   * @param options timer specify milliseconds to remove the message
    */
-  const copy = async (data: string, timeoutMsg?: number) => {
+  const copy = async (data: string, options: {msg: string, timer?: number}) => {
     try {
       if (data != '') {
         await navigator.clipboard.writeText(data);
-        message.value = 'Copied!';
-        if (timeoutMsg) {
+        message.value = options.msg;
+        if (options.timer) {
           setTimeout(() => {
             message.value = '';
-          }, timeoutMsg);
+          }, options.timer);
         }
       }
     } catch {
