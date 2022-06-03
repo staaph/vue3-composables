@@ -99,9 +99,7 @@ Plain example (needs styling to determine backdrop):
 ```
 
 ```ts
-<script setup lang="ts">
 import { useBackdrop } from '@/composables/useBackdrop';
 
 const { modal, backdrop, button, isModalOpen, closeModal, openModal } = useBackdrop();
-</script>
 ```
