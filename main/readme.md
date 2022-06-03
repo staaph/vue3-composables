@@ -19,6 +19,8 @@ const { userTheme, toggleTheme } = useDark();
 
 ## useSearchFocus
 
+Live example: <https://vue-components-snowy.vercel.app/007>
+
 ```html
 <div>
   <input ref="searchbar" type="text" />
