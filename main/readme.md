@@ -88,8 +88,8 @@ Plain example (needs styling to determine backdrop):
 
 ```html
 <template>
-  <button ref="button" @click="openModal" v-if="!isModalOpen">Click</button>
   <main ref="backdrop">
+    <button ref="button" @click="openModal" v-if="!isModalOpen">Click</button>
     <div ref="modal">
       <h1>Content</h1>
       <button @click="closeModal">CLOSE</button>
