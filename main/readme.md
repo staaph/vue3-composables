@@ -96,7 +96,9 @@ Plain example (needs styling to determine backdrop):
     </div>
   </main>
 </template>
+```
 
+```ts
 <script setup lang="ts">
 import { useBackdrop } from '@/composables/useBackdrop';
 
