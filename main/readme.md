@@ -81,3 +81,25 @@ const click = () => {
   copy(input.value, { msg: 'Copied!', timer: 1000 });
 };
 ```
+
+## useBackdrop
+
+Plain example (needs styling to determine backdrop):
+
+```html
+<template>
+  <button ref="button" @click="openModal" v-if="!isModalOpen">Click</button>
+  <main ref="backdrop">
+    <div ref="modal">
+      <h1>Content</h1>
+      <button @click="closeModal">CLOSE</button>
+    </div>
+  </main>
+</template>
+
+<script setup lang="ts">
+import { useBackdrop } from '@/composables/useBackdrop';
+
+const { modal, backdrop, button, isModalOpen, closeModal, openModal } = useBackdrop();
+</script>
+```
