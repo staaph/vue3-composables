@@ -84,8 +84,8 @@ const click = () => {
 
 ## useBackdrop
 
+Live example: <https://vue-components-snowy.vercel.app/009> \n
 Plain example (needs styling to determine backdrop):
-Live example: <https://vue-components-snowy.vercel.app/009>
 
 ```html
 <template>
