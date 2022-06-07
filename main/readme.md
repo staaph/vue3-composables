@@ -19,6 +19,8 @@ const { userTheme, toggleTheme } = useDark();
 
 ## useSearchFocus
 
+Live example: <https://vue-components-snowy.vercel.app/007>
+
 ```html
 <div>
   <input ref="searchbar" type="text" />
@@ -84,6 +86,7 @@ const click = () => {
 
 ## useBackdrop
 
+Live example: <https://vue-components-snowy.vercel.app/009>\
 Plain example (needs styling to determine backdrop):
 
 ```html

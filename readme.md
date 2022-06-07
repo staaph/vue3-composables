@@ -12,8 +12,8 @@ as of now they include:
 / main
 
 - useDark
-- useHotKey (toggle searchbar focus) (example: <https://vue-components-snowy.vercel.app/007>)
+- useSearchbarFocus - (example: <https://vue-components-snowy.vercel.app/007>)
 - stopPageLeave
 - useHandleKeyMod (check for capslock on input for example)
 - useClipboard
-- useBackdrop (Modal)
+- useBackdrop (Modal) - (exampe: <https://vue-components-snowy.vercel.app/009>)
