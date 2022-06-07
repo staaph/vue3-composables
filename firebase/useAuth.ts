@@ -8,8 +8,9 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
 } from 'firebase/auth';
-import { ref, type Ref } from 'vue';
 import { FirebaseError } from '@firebase/util';
+import { errorMessage } from './errorMsg';
+import { ref, type Ref } from 'vue';
 
 export const errorMsg: Ref<string | unknown> = ref();
 
@@ -23,16 +24,10 @@ export const login = async (email: string, password: string) => {
   try {
     await signInWithEmailAndPassword(getAuth(), email, password);
   } catch (error: unknown) {
-    if (error instanceof FirebaseError) {
-      const errorMessageMap: { [key: string]: string } = {
-        'auth/invalid-email': 'Invalid email',
-        'auth/wrong-password': 'Incorrect password',
-        'auth/user-not-found': 'No account with the provided email found',
-      };
-      errorMsg.value = errorMessageMap[error.code] ?? 'Incorrect credentials';
-    } else {
-      errorMsg.value = 'unknown server error';
-    }
+    error instanceof FirebaseError
+      ? (errorMsg.value =
+          errorMessage[error.code] ?? 'Something unexpected happened')
+      : (errorMsg.value = 'unknown server error');
   }
 };
 
@@ -46,14 +41,10 @@ export const signup = async (email: string, password: string) => {
   try {
     await createUserWithEmailAndPassword(getAuth(), email, password);
   } catch (error: unknown) {
-    if (error instanceof FirebaseError) {
-      const errorMessageMap: { [key: string]: string } = {
-        'auth/weak-password': 'password must contain at least 6 characters',
-        'auth/email-already-in-use': 'email already taken',
-      };
-      errorMsg.value =
-        errorMessageMap[error.code] ?? 'Something unexpected happened';
-    }
+    error instanceof FirebaseError
+      ? (errorMsg.value =
+          errorMessage[error.code] ?? 'Something unexpected happened')
+      : (errorMsg.value = 'unknown server error');
   }
 };
 
