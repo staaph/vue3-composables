@@ -12,6 +12,8 @@ import {
   loginWithGoogle,
   logout,
   errorMsg,
+  user,
+  fbUser,
 } from '@/composables/useAuth';
 
 // these functions can be called directly in the template
@@ -43,6 +45,15 @@ const click = () => {
 // const errorMsg: Ref<string | unknown>
 // can be used directly in the template
 <p>{{ errorMsg }}</p>;
+
+// fbUser(): Promise<unknown>
+const user = await fbUser();
+
+// check for current user
+// const user: Ref<object | null>
+if (user.value) {
+  // do something
+}
 ```
 
 ### useFirestore
@@ -91,4 +102,42 @@ const click = () => {
 const click = () => {
   updateDocument('collection', 'document', { data: 'test' });
 };
+```
+
+## useFbUtil
+
+```js
+const {
+  changeEmail,
+  changePassword,
+  errorMsg,
+  userProvidedPassword,
+  newPassword,
+} = useFbUtil();
+
+// send forgot password email
+// const resetPwEmail: (email: string) => Promise<void>
+const sendEmail = async () => {
+  await resetPwEmail(email.value);
+};
+
+// reauthenticates user
+//const reauthenticate: (currentPassword: string) => Promise<void>
+const click = async () => {
+  await reauthenticate(password.value)
+};
+
+// const changeEmail: (newEmail: string) => Promise<void>
+const click = async () => {
+  await changeEmail(newEmail.value)
+}
+
+// const changePassword: () => Promise<void>
+const click = async () => {
+  await changePassword()
+}
+// const deleteAccount: (currentPw: string) => Promise<void>
+const click = async () => {
+  await deleteAccount(currentPw.value)
+}
 ```

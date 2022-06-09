@@ -11,6 +11,7 @@ import {
 import { FirebaseError } from '@firebase/util';
 import { errorMessage } from './errorMsg';
 import { ref, type Ref } from 'vue';
+import { urlToHttpOptions } from 'url';
 
 export const errorMsg: Ref<string | unknown> = ref();
 
@@ -91,3 +92,22 @@ export const logout = async () => {
     }
   }
 };
+
+export const fbUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      getAuth(),
+      (userFirebase) => {
+        unsubscribe();
+        resolve(userFirebase);
+      },
+      reject
+    );
+  });
+};
+
+export const user: Ref<object | null> = ref(getAuth().currentUser);
+onAuthStateChanged(getAuth(), (_user: object | null) => {
+  user.value = _user;
+  return user;
+});
