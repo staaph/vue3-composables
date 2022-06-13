@@ -102,6 +102,16 @@ const click = () => {
 const click = () => {
   updateDocument('collection', 'document', { data: 'test' });
 };
+
+// const getDocument: (docID: string) => Promise<DocumentSnapshot<DocumentData>>
+const click = ()=>{
+  getDocument(id)
+}
+
+// const queryDocument: (col: string, qry: string) => Promise<object[]>
+const click = () => {
+  queryDocument('articles', 'user')
+}
 ```
 
 ## useFbUtil
