@@ -11,7 +11,6 @@ import {
 import { FirebaseError } from '@firebase/util';
 import { errorMessage } from './errorMsg';
 import { ref, type Ref } from 'vue';
-import { urlToHttpOptions } from 'url';
 
 export const errorMsg: Ref<string | unknown> = ref();
 
