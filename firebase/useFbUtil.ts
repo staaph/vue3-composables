@@ -73,7 +73,8 @@ export const changeEmail = async (
  * @param currentPassword - current user Password, provide v-model from input
  */
 export const changePassword = async (
-  currentPassword: string, newPassword: string
+  currentPassword: string,
+  newPassword: string
 ): Promise<void> => {
   errorMsg.value = ''
   const user = getAuth().currentUser
