@@ -8,6 +8,7 @@ as of now they include:
 
 - useAuth => email login, register, anonymous login, Google popup login, logout & error messages
 - useFirestore => addDocument, getDocument, setDocument, deleteDocument, updateDocument
+- useFbUtil => resetPwEmail, changeEmail, changePassword, errorMsg
 
 / main
 
