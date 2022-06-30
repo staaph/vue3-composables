@@ -11,7 +11,6 @@ import {
 import { FirebaseError } from '@firebase/util';
 import { errorMessage } from './errorMsg';
 import { ref, type Ref } from 'vue';
-import { urlToHttpOptions } from 'url';
 
 export const errorMsg: Ref<string | unknown> = ref();
 
@@ -20,7 +19,7 @@ export const errorMsg: Ref<string | unknown> = ref();
  * @param email pass email from input
  * @param password pass password from input
  */
-export const login = async (email: string, password: string) => {
+export const login = async (email: string, password: string): Promise<void> => {
   errorMsg.value = '';
   try {
     await signInWithEmailAndPassword(getAuth(), email, password);
@@ -37,7 +36,7 @@ export const login = async (email: string, password: string) => {
  * @param email pass email from input
  * @param password pass password from input
  */
-export const signup = async (email: string, password: string) => {
+export const signup = async (email: string, password: string): Promise<void> => {
   errorMsg.value = '';
   try {
     await createUserWithEmailAndPassword(getAuth(), email, password);
@@ -52,7 +51,7 @@ export const signup = async (email: string, password: string) => {
 /**
  * log user in anonymously
  */
-export const loginAnonymous = () => {
+export const loginAnonymous = (): void => {
   errorMsg.value = '';
   try {
     signInAnonymously(getAuth());
@@ -68,7 +67,7 @@ export const loginAnonymous = () => {
 /**
  * login with Google, opens popup
  */
-export const loginWithGoogle = async () => {
+export const loginWithGoogle = async (): Promise<void> => {
   errorMsg.value = '';
   try {
     await signInWithPopup(getAuth(), new GoogleAuthProvider());
@@ -80,7 +79,7 @@ export const loginWithGoogle = async () => {
 /**
  * log user out
  */
-export const logout = async () => {
+export const logout = async (): Promise<void> => {
   errorMsg.value = '';
   try {
     await signOut(getAuth());
@@ -93,7 +92,7 @@ export const logout = async () => {
   }
 };
 
-export const fbUser = () => {
+export const fbUser = (): Promise<unknown> => {
   return new Promise((resolve, reject) => {
     const unsubscribe = onAuthStateChanged(
       getAuth(),

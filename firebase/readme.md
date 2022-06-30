@@ -13,41 +13,41 @@ import {
   logout,
   errorMsg,
   user,
-  fbUser,
-} from '@/composables/useAuth';
+  fbUser
+} from '@/composables/useAuth'
 
 // these functions can be called directly in the template
 // const login: (email: string, password: string) => Promise<void>
 const click = () => {
-  login(email.value, password.value);
-};
+  login(email.value, password.value)
+}
 
 // const signup: (email: string, password: string) => Promise<void>
 const click = () => {
-  signup(email.value, password.value);
-};
+  signup(email.value, password.value)
+}
 
 // const loginAnonymous: () => void
 const click = () => {
-  loginAnonymous();
-};
+  loginAnonymous()
+}
 
 // const loginWithGoogle: () => Promise<void>
 const click = () => {
-  loginWithGoogle();
-};
+  loginWithGoogle()
+}
 
 // const logout: () => Promise<void>
 const click = () => {
-  logout();
-};
+  logout()
+}
 
 // const errorMsg: Ref<string | unknown>
 // can be used directly in the template
-<p>{{ errorMsg }}</p>;
+;<p>{{ errorMsg }}</p>
 
 // fbUser(): Promise<unknown>
-const user = await fbUser();
+const user = await fbUser()
 
 // check for current user
 // const user: Ref<object | null>
@@ -64,19 +64,19 @@ import {
   getDocument,
   setDocument,
   deleteDocument,
-  updateDocument,
-} from '@/composables/useFirestore';
+  updateDocument
+} from '@/composables/useFirestore'
 
 // const getDocument: (reference: string) => Promise<object[]>
 const click = async () => {
-  const document = await getDocument('cities');
-  return document;
-};
+  const document = await getDocument('cities')
+  return document
+}
 
 // const addDocument: (reference: string, data: object) => Promise<void>
 const click = () => {
-  addDocument('test', { data: 'testdata' });
-};
+  addDocument('test', { data: 'testdata' })
+}
 
 // const setDocument: (reference: string, docname: string, data: object, options?: { merge?: boolean | undefined })
 // => Promise<void>
@@ -87,29 +87,29 @@ const click = () => {
     {
       name: 'Los Angeles',
       state: 'CA',
-      country: 'USA',
+      country: 'USA'
     },
     { merge: true }
-  );
-};
+  )
+}
 
 // const deleteDocument: (reference: string, document: string) => Promise<void>
 const click = () => {
-  deleteDocument('collection', 'document');
-};
+  deleteDocument('collection', 'document')
+}
 
 // const updateDocument: (reference: string, document: string, data: object) => Promise<void>
 const click = () => {
-  updateDocument('collection', 'document', { data: 'test' });
-};
+  updateDocument('collection', 'document', { data: 'test' })
+}
 
 // const getDocument: (docID: string) => Promise<DocumentSnapshot<DocumentData>>
-const click = ()=>{
+const click = () => {
   getDocument(id)
 }
 
 // const queryDocument: (col: string, qry: string) => Promise<object[]>
-const click = () => {
+const click = () => {
   queryDocument('articles', 'user')
 }
 ```
@@ -117,34 +117,27 @@ const click = () => {
 ## useFbUtil
 
 ```js
-const {
+import {
+  resetPwEmail,
   changeEmail,
   changePassword,
-  errorMsg,
-  userProvidedPassword,
-  newPassword,
-} = useFbUtil();
+  errorMsg
+} from '@/composables/useFbUtil'
 
 // send forgot password email
 // const resetPwEmail: (email: string) => Promise<void>
 const sendEmail = async () => {
-  await resetPwEmail(email.value);
-};
-
-// reauthenticates user
-//const reauthenticate: (currentPassword: string) => Promise<void>
-const click = async () => {
-  await reauthenticate(password.value)
-};
-
-// const changeEmail: (newEmail: string) => Promise<void>
-const click = async () => {
-  await changeEmail(newEmail.value)
+  await resetPwEmail(email.value)
 }
 
-// const changePassword: () => Promise<void>
+// const changeEmail: (newEmail: string, currentPassword: string) => Promise<void>
 const click = async () => {
-  await changePassword()
+  await changeEmail(newEmail.value, currentPassword.value)
+}
+
+// const changePassword: (currentPassword: string, newPassword: string) => Promise<void>
+const click = async () => {
+  await changePassword(currentPassword.value, newPassword.value)
 }
 // const deleteAccount: (currentPw: string) => Promise<void>
 const click = async () => {
